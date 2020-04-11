@@ -3,7 +3,7 @@
  *
  * @author     brainelectronics <git@brainelectronics.de>
  * @date       11 April 2020
- * @version    0.1.0
+ * @version    0.1.1
  *
  * @brief      Configure Holding Register with initial value 0xABCD
  *
@@ -52,17 +52,20 @@ uint16_t lastRegisterValue = registerValue;
 #define SLAVE_ID         12
 #define MODBUS_BAUDRATE  9600 // baudrate used on the RS485 bus
 
-#define USE_SOFTWARE_SERIAL
+// uncomment the following define to communicate via Serial
+// no serial debug communication is possible then
+// #define USE_SOFTWARE_SERIAL
 
 #ifdef USE_SOFTWARE_SERIAL
 #include <SoftwareSerial.h>
 #define RS485RX          4    // WeMos RX to D2 (GPIO4, Arduino pin 4)
 #define RS485TX          5    // WeMos TX to D1 (GPIO5, Arduino pin 5)
+
+SoftwareSerial rs485(RS485RX, RS485TX);
 #endif
 
 // ModbusRTU object
 ModbusRTU mb;
-SoftwareSerial rs485(RS485RX, RS485TX); // WeMos (receive pin, transmit pin)
 
 void setup()
 {
@@ -89,7 +92,7 @@ void setup()
   rs485.begin(MODBUS_BAUDRATE);
   mb.begin(&rs485);
 #else
-  Serial.begin(MODBUS_BAUDRATE, SERIAL_8N1)
+  Serial.begin(MODBUS_BAUDRATE, SERIAL_8N1);
   mb.begin(&Serial);
 #endif
 
