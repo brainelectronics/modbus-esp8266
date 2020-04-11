@@ -1,11 +1,11 @@
 /*
- * @file HoldingReg.ino
+ * @file AnalogInput.ino
  *
  * @author     brainelectronics <git@brainelectronics.de>
  * @date       11 April 2020
  * @version    0.1.0
  *
- * @brief      Read Input Register with value of ADC pin (0...1024)
+ * @brief      Fill Input Register with value of ADC pin (0...1024)
  *
  * @required   readInputModbusIp.py at version 0.1.0
  *

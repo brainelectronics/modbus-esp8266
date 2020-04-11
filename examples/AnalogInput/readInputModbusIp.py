@@ -5,7 +5,7 @@
 #  @author       brainelectronics
 #  @file         readInputModbusIp.py
 #  @date         April, 2020
-#  @version      0.1.0
+#  @version      0.1.1
 #  @brief        Read input register via modbus on external IP
 #
 #  @required     AnalogInput.ino at version 0.1.0
@@ -19,7 +19,7 @@
 __author__ = "brainelectronics"
 __copyright__ = "Copyright by brainelectronics, ALL RIGHTS RESERVED"
 __credits__ = ["brainelectronics"]
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 __maintainer__ = "brainelectronics"
 __email__ = "git@brainelectronics.de"
 __status__ = "Development"
@@ -44,6 +44,28 @@ registerAddress = 100
 # theAmount = 1
 # unit:    the slave unit this request is targeting (the slave device ID)
 # slaveID = 12
+
+# function 04 - read input registers (address=0, count=1, unit=12)
+print("Reading data from register %s" %(registerAddress))
+data = client.read_input_registers(address=registerAddress)
+adcValue = 0
+if data != None:
+	# print(data)
+	# print(data.registers)
+	adcValue = int(data.registers[0])
+	print("%d" %(adcValue))
+time.sleep(1)
+
+# function 04 - read input registers (address=0, count=1, unit=12)
+print("Reading data from register %s" %(registerAddress))
+data = client.read_input_registers(address=registerAddress)
+adcValue = 0
+if data != None:
+	# print(data)
+	# print(data.registers)
+	adcValue = int(data.registers[0])
+	print("%d" %(adcValue))
+time.sleep(1)
 
 # function 04 - read input registers (address=0, count=1, unit=12)
 print("Reading data from register %s" %(registerAddress))
