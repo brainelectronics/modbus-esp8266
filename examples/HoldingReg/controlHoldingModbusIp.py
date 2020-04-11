@@ -6,7 +6,7 @@
 #  @file         controlHoldingModbusIp.py
 #  @date         April, 2020
 #  @version      0.1.0
-#  @brief        Control coil via modbus on external IP
+#  @brief        Read and control holding register via modbus on external IP
 #
 #  @required     HoldingReg.ino at version 0.1.0
 #  				 pymodbus 2.3.0 or higher
