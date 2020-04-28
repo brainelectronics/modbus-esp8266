@@ -3,3 +3,5 @@
 .vscode/*
 src/ModbusSerial.cpp
 src/ModbusSerial.h
+
+wifiConfig.h
